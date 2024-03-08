@@ -1,0 +1,277 @@
+.msgScreen_main_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: #161616;
+}
+
+.heading_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  margin: 20px 0;
+}
+
+.heading_div > p {
+  width: 30px;
+}
+
+.heading_div > h1 {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "roboto";
+  margin-left: -5%;
+}
+
+#edit_icon {
+  margin-right: 10px;
+}
+.search_players_main_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  background-color: #161616;
+  overflow-x: hidden;
+}
+
+.search_bar_main_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #2c2c2c;
+  border: 2px solid #2c2c2c;
+  border-radius: 10px;
+  width: 95%;
+  height: 60px;
+  margin: 20px 10px;
+}
+
+.search_bar_main_div > input {
+  width: 80%;
+  height: 50px;
+  color: white;
+  font-size: 16px;
+  text-indent: 10px;
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+
+#search_icon {
+  color: white;
+}
+
+.players_list_div {
+  width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 10px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+.list_inner_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  margin: 10px;
+  background-color: #161616;
+}
+
+.list_inner_div > p {
+  color: white;
+  font-size: 16px;
+  font-family: "roboto";
+  margin-top: 20px;
+}
+
+.btns_main_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 95%;
+  height: 60px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  margin: 0 10px;
+  margin-top: 20px;
+}
+
+.btns_inner_div_active {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  height: 60px;
+  background-color: black;
+  border-radius: 10px;
+  padding-left: 10%;
+}
+
+.btns_inner_div_active > p {
+  margin-left: 10px;
+  color: white;
+  font-size: 18px;
+  font-family: "roboto";
+  text-align: center;
+  margin-left: 10px;
+}
+
+.btns_inner_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  height: 60px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  padding-left: 10%;
+}
+
+.btns_inner_div > p {
+  margin-left: 10px;
+  color: white;
+  font-size: 18px;
+  font-family: "roboto";
+  text-align: center;
+}
+
+.messages_main_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 70%;
+  margin: 20px 0;
+  overflow: hidden scroll;
+  scroll-behavior: smooth;
+}
+
+.messages_inner_div {
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 80px;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+.messages_inner_div > img {
+  width: 80px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  margin-left: 5px;
+}
+
+.player_msg_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 80px;
+}
+.player_msg_div > h1 {
+  font-size: 18px;
+  color: #008eb1;
+  font-weight: 900;
+  font-family: "roboto";
+  font-style: italic;
+}
+
+.player_msg_div > h2 {
+  font-size: 12px;
+  color: whitesmoke;
+  font-weight: 500;
+  font-family: "roboto";
+  margin-top: 10px;
+  width: 200px;
+  height: auto;
+}
+
+.player_msg_div > h2 > span {
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  font-family: "roboto";
+  font-style: italic;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.notification_icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 80px;
+}
+
+.notification_icon > h3 {
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+  width: max-content;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.notification_icon > h6 {
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+  width: max-content;
+  margin-top: -50px;
+}
+
+.notification_icon > p {
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+#players_images {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.footer_div {
+  display: block;
+  margin: 20px 0;
+}

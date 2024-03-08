@@ -1,0 +1,250 @@
+.signIn_main_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+  background-color: #33333e;
+  overflow-x: hidden;
+}
+
+.signIn_main_div > h1 {
+  width: 100%;
+  font-size: 30px;
+  color: #dadbe0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10% 0;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
+.input_main_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  margin: 5% 15px;
+}
+.input_main_div > label {
+  font-size: 22px;
+  /* color: #76777d; */
+  color: darkgrey;
+  font-family: "roboto";
+  font-weight: bold;
+  margin: 5px 0;
+}
+.input_main_div > input {
+  width: 90%;
+  height: 50px;
+  background-color: #33333e;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  text-indent: 10px;
+  font-size: 18px;
+  color: #42917d;
+  /* border-radius: 10px; */
+}
+
+.password_image_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  position: sticky;
+}
+
+.password_image_div > input {
+  width: 90%;
+  height: 50px;
+  background-color: #33333e;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: none;
+  text-indent: 10px;
+  font-size: 18px;
+  color: #42917d;
+  /* border-radius: 10px; */
+}
+
+.password_image_div > img {
+  width: 28px;
+  height: 20px;
+  position: absolute;
+  margin-left: 80%;
+  cursor: pointer;
+}
+.login_btn_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 10% 0;
+}
+#login_btn {
+  width: 80%;
+  height: 60px;
+  text-align: center;
+  background-color: #1fb880;
+  color: white;
+  font-size: 24px;
+  border: 1px solid #1fb880;
+  border-radius: 10px;
+  /* margin-top: -15%; */
+}
+
+.social_btns_main_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  margin-top: 10%;
+  display: none;
+}
+
+.social_btns_main_div > h3 {
+  color: dodgerblue;
+  font-size: 20px;
+  text-align: center;
+  font-family: "roboto";
+  font-weight: bolder;
+}
+
+.social_btns_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  margin: 20px 0;
+}
+
+.google_btn_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  height: 60px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.facebook_btn_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  height: 60px;
+  background-color: #107ef7;
+  border: 1px solid #107ef7;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.google_btn_div > img {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+}
+.google_btn_div > p {
+  color: black;
+  font-size: 18px;
+}
+
+.facebook_btn_div > p {
+  color: white;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.create_account_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 0;
+  /* margin-bottom: 10px; */
+}
+.create_account_div > p {
+  font-size: 20px;
+  color: #dadbe0;
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Inter", sans-serif;
+  width: 300px;
+  height: auto;
+  position: fixed;
+  bottom: 14%;
+  /* margin-top: 15%; */
+}
+
+.create_account_div > button {
+  width: 90%;
+  height: 60px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-weight: 500;
+  font-size: 20px;
+  position: fixed;
+  bottom: 20px;
+}
+
+.signIn_loader_div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #33333e;
+  overflow-x: hidden;
+}
+
+.custom-loader {
+  width: 100px;
+  height: 100px;
+  display: grid;
+}
+.custom-loader::before,
+.custom-loader::after {
+  content: "";
+  grid-area: 1/1;
+  --c: radial-gradient(farthest-side, #766df4 92%, #0000);
+  background: var(--c) 50% 0, var(--c) 50% 100%, var(--c) 100% 50%,
+    var(--c) 0 50%;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  animation: s2 1s infinite;
+}
+.custom-loader::before {
+  margin: 8px;
+  filter: hue-rotate(45deg);
+  background-size: 16px 16px;
+  animation-timing-function: linear;
+}
+
+@keyframes s2 {
+  100% {
+    transform: rotate(0.5turn);
+  }
+}

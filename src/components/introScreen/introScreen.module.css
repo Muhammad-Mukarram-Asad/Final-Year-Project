@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.intro_main_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://originhope.com/sites/default/files/styles/article_lead_image/public/2023-01/kevin-mueller-Q-fL04RhuMg-unsplash.jpg?itok=GFA4sTgj");
+    background-position: center;
+    background-size: cover;
+
+}
+.intro_inner_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30%;
+
+}
+.intro_inner_div > h1{
+    width: 320px;
+    height: 48px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 34px;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bolder;
+}
+
+.intro_inner_div > p{
+    width: 320px;
+    height: 48px;
+    font-family: 'Roboto';
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.intro_inner_div > button {
+    background-color: #262626;
+    color: white;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    border: 1px solid #262626;
+    border-radius: 20px;
+    width: 320px;
+    height: 60px;
+    /* margin-top: 15px; */
+    position: fixed;
+    bottom: 20px;
+}
