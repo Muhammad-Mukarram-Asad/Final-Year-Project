@@ -20,15 +20,11 @@ import Swal from "sweetalert2";
 // import axios from "axios";
 
 const UserProfile = () => {
-  // const apiHit = axios.create({
-  //   baseURL: API_BASE_URL,
-  // });
 
   const navigate = useNavigate();
   const [userData, setUserData] = useState();
   const [postData, setPostData] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
-  // const [aggregatedDataList, setAggregatedDataList] = useState([]);
 
   useEffect(() => {
     async function getLoginUserDetails() {

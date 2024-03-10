@@ -4,7 +4,7 @@ import styles from './post.module.css'
 import { useNavigate } from 'react-router-dom';
 import back_icon from "../../images/back_icon.svg"
 import apiHit from '../../util/AxiosURL';
-
+import Swal from 'sweetalert2';
 const CreatePost = () => {
     // const apiHit = axios.create({
     //     baseURL: process.env.API_BASE_URL
@@ -24,6 +24,15 @@ const CreatePost = () => {
         await apiHit.post("/createpost", postData)
         .then((res) => {
             console.log("Result = ", res.data);
+            Swal.fire({
+                icon: 'success',
+                title: 'Post created successfully',
+                text: 'You have successfully created a post',
+                confirmButtonText: 'OK',
+                position: 'center',
+                confirmButtonColor: 'green',
+                timer: 2000
+            })
         })
         .catch((err) => {
             console.log("Error in creating post = ", err);
