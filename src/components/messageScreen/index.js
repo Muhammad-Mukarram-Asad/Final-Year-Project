@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import styles from "../chatbot/chatbot.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import back_icon from "../../images/back_icon_white.svg";
 
 const Chatbot = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
-  const [userName, setUserName] = useState("");
 
   const predefinedPatterns = [
     {
@@ -15,8 +18,21 @@ const Chatbot = () => {
   ];
 
   const userMessages = [
-    ["hi", "hy", "hello", "hey", "salam", "there", "hi there", "hello there"], // 1
-    ["what is your name", "your name", "who is this", "there", "who are you"], // 2
+    [
+      "hi",
+      "hy",
+      "hello",
+      "hey",
+      "salam",
+      "there",
+      "hi there",
+      "hello there", // 1
+      "what is your name",
+      "your name",
+      "who is this",
+      "there",
+      "who are you",
+    ],
     ["What is the latest cricket score"], // 3
     ["Tell me the current rankings of the cricket teams"], // 4
     ["Who are the top 5 or 6 players in the cricket world cup"], // 5
@@ -58,8 +74,8 @@ const Chatbot = () => {
     ["Tell me about famous cricket rivalries"],
     ["What is the Super Over in T20 cricket"],
     ["Who is the fastest bowler in the history of cricket"], //40
-
     ["What is the IPL auction and how does it work"], // 41
+
     // ["Which cricket player has the most sixes in T20 internationals"],
     // ["How are cricket balls made"],
     // ["What is the role of a cricket captain on the field"],
@@ -78,9 +94,6 @@ const Chatbot = () => {
     [
       "Hi this is Sportify Chatbot, your cricketing buddy! How can I assist you",
     ], // 1
-    [
-      "Hi this is Sportify Chatbot, your cricketing partner! How can I assist you",
-    ], // 2
     [
       "To get the latest cricket score, you can check the live score section on the app's homepage.",
     ], // 3
@@ -194,9 +207,6 @@ const Chatbot = () => {
     "Hey, I'm listening...",
   ];
 
-  console.log("userMessages.length = ", userMessages.length);
-  console.log("botReplies.length = ", botReplies.length);
-
   const handleSendMessage = () => {
     if (input.trim() === "") return;
 
@@ -210,66 +220,121 @@ const Chatbot = () => {
     if (matchedPattern) {
       // Extract the user name using capturing groups in the regular expression
       const extractedName = input.match(matchedPattern.pattern)[1];
-      console.log("extractedName = ", extractedName);
-      setUserName(extractedName);
-    }
 
-    // Check if the user input matches any predefined questions
-    const matchedQuestionIndex = userMessages.findIndex((questions) =>
-      questions.map((question) =>
-        input.toLowerCase().includes(question.toLowerCase())
-      )
-    );
+      // Print the predefined pattern along with the userName
+      const patternMessage = `Hi ${extractedName}, How can I assist you?`;
+      console.log("patternMessage = ", patternMessage);
 
-    // Update the state with the user's message and the chatbot's response
-    if (matchedQuestionIndex !== -1) {
-      console.log("matchedQuestionIndex = ", matchedQuestionIndex);
-      const response = botReplies[matchedQuestionIndex];
-      console.log("response from the bot = ", response);
+      // Set the response in the state or perform any other actions as needed
       setMessages([
         ...messages,
         { text: input, sender: "user" },
-        { text: response, sender: "bot" },
+        { text: patternMessage, sender: "bot" },
       ]);
     } else {
-      // If the input doesn't match any predefined questions, provide a random alternative response
-      const randomAlternative =
-        alternative[Math.floor(Math.random() * alternative.length)];
-      setMessages([
-        ...messages,
-        { text: input, sender: "user" },
-        { text: randomAlternative, sender: "bot" },
-      ]);
-    }
+      // Check if the user input matches any predefined questions
+      let matchedQuestionIndex = -1;
 
-    setInput("");
+      for (let i = 0; i < userMessages.length; i++) {
+        const questions = userMessages[i];
+        console.log(`Checking questions set ${i + 1}:`, questions);
+
+        // Check if any question in the set matches the user input
+        const foundIndex = questions.findIndex((question) =>
+          input.toLowerCase().includes(question.toLowerCase())
+        );
+        console.log("foundIndex = ", foundIndex);
+
+        if (foundIndex !== -1) {
+          matchedQuestionIndex = i;
+          break; // Stop searching once a match is found in the current set of questions
+        }
+      }
+
+      // Update the state with the user's message and the chatbot's response
+      if (matchedQuestionIndex !== -1) {
+        console.log("matchedQuestionIndex = ", matchedQuestionIndex);
+        const response = botReplies[matchedQuestionIndex];
+        console.log("response from the bot = ", response);
+        setMessages([
+          ...messages,
+          { text: input, sender: "user" },
+          { text: response, sender: "bot" },
+        ]);
+      } else {
+        // If the input doesn't match any predefined questions, provide a random alternative response
+        const randomAlternative =
+          alternative[Math.floor(Math.random() * alternative.length)];
+        setMessages([
+          ...messages,
+          { text: input, sender: "user" },
+          { text: randomAlternative, sender: "bot" },
+        ]);
+      }
+
+      setInput("");
+    }
   };
 
   return (
-    <div>
-      <div
-        style={{
-          height: "300px",
-          overflowY: "scroll",
-          border: "1px solid #ccc",
-          padding: "10px",
-        }}
-      >
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            style={{
-              marginBottom: "10px",
-              color: message.sender === "bot" ? "green" : "blue",
-            }}
-          >
-            {message.text}
+    // <div>
+    //   <div
+    //     style={{
+    //       height: "300px",
+    //       overflowY: "scroll",
+    //       border: "1px solid #ccc",
+    //       padding: "10px",
+    //     }}
+    //   >
+    //     {messages.map((message, index) => (
+    //       <div
+    //         key={index}
+    //         style={{
+    //           marginBottom: "10px",
+    //           color: message.sender === "bot" ? "green" : "blue",
+    //         }}
+    //       >
+    //         {message.text}
+    //       </div>
+    //     ))}
+    //   </div>
+    //   <div>
+    //     <input
+    //       type="text"
+    //       value={input}
+    //       onChange={(e) => setInput(e.target.value)}
+    //     />
+    //     <button onClick={handleSendMessage}>Send</button>
+    //   </div>
+    // </div>
+
+    <div className={styles["card"]}>
+      <div id={styles["header"]}>
+        <img src={back_icon} alt="back" onClick={() => window.history.back()} />
+        <h1>Sportify Chatbot!</h1>
+        <p>{""}</p>
+      </div>
+
+      <div id={styles["message-section"]}>
+        {messages.map((msg, index) => (
+          <div key={index} className={styles[`message-${msg.sender}`]}>
+            <span id={styles[`${msg.sender}-response`]}>{msg.text}</span>
           </div>
         ))}
       </div>
-      <div>
-        <input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-        <button onClick={handleSendMessage}>Send</button>
+      <div id={styles["input-section"]}>
+        <input
+          id={styles["input"]}
+          type="text"
+          placeholder="Type a message"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <FontAwesomeIcon
+          style={{ color: "#ffffff", fontSize: "25px" }}
+          icon={faPaperPlane}
+          onClick={handleSendMessage}
+        />
       </div>
     </div>
   );
