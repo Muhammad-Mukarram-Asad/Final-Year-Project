@@ -241,7 +241,7 @@ const Chatbot = () => {
 
         // Check if any question in the set matches the user input
         const foundIndex = questions.findIndex((question) =>
-          input.toLowerCase().includes(question.toLowerCase())
+          question.toLowerCase().includes(input.toLowerCase())
         );
         console.log("foundIndex = ", foundIndex);
 
@@ -271,9 +271,8 @@ const Chatbot = () => {
           { text: randomAlternative, sender: "bot" },
         ]);
       }
-
-      setInput("");
     }
+    setInput("");
   };
 
   return (

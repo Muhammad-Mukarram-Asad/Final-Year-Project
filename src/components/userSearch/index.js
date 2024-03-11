@@ -41,11 +41,12 @@ const PlayerSearch = () => {
               return { playerId: player._id, url };
             } catch (error) {
               if (error.code === "storage/object-not-found") {
-                console.warn(`Image not found for user ${player._id}`);
-                return null; // Return null for users without images
+                return {
+                  playerId: player._id,
+                  url: "https://cdn-icons-png.flaticon.com/512/149/149071.png",
+                };
               } else {
                 console.error("Error getting download URL: ", error);
-                // throw error; // Rethrow other errors
               }
             }
           })
@@ -128,7 +129,7 @@ const PlayerSearch = () => {
                   className={styles["list_inner_div"]}
                   onClick={(event) => handleUserClick(player._id, event)}
                 >
-                  <p>{index + 1 + ") "}</p>
+                  {/* <p>{index + 1 + ") "}</p> */}
                   {image && <img src={image.url} alt="user_image" />}
                   <h1>{player.name}</h1>
                 </div>

@@ -129,7 +129,8 @@ const UserProfile = () => {
       })
 
       setTimeout(() => {
-        ["userToken", "loginUserData"].forEach(key => localStorage.removeItem(key));
+        localStorage.clear();
+        // ["userToken", "loginUserData"].forEach(key => localStorage.removeItem(key));
         navigate("/");
         
       }, 4000)

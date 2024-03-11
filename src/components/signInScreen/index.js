@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./signIn.module.css";
-import Icon from "../../images/password_icon.png";
+import pwd_open from "../../images/password_icon.png";
+import pwd_close from "../../images/password_icon_close.png"
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";
@@ -44,41 +45,40 @@ const SignIn = () => {
   //   baseURL: API_BASE_URL
   // });
 
- 
   const handleSubmit = async () => {
-      setIsLoading(true);
-      console.log(emailData, pwdData);
-      await apiHit
-        .post("/login", {
-          email: emailData,
-          password: pwdData,
-        })
-        .then((res) => {
-          console.log("res.data =", res.data);
-          if (res.data) {
-            localStorage.setItem("userToken", res.data.token);
-            setEmailData("");
-            setPwdData("");
-            setTimeout(() => {
-              setIsLoading(false);
-              navigate("/userProfile");
-            }, 3000);
-          }
-        })
-        .catch((err) => {
-          console.log("Post Error in logging user:\n", err);
-          Swal.fire({
-            icon: "error",
-            title: "Aah Shit! Something went wrong!",
-            text: `${err.response.data}`,
-            confirmButtonText: "OK",
-            position: "center",
-            confirmButtonColor: "red",
-          });
-          setIsLoading(false);
+    setIsLoading(true);
+    console.log(emailData, pwdData);
+    await apiHit
+      .post("/login", {
+        email: emailData,
+        password: pwdData,
+      })
+      .then((res) => {
+        console.log("res.data =", res.data);
+        if (res.data) {
+          localStorage.setItem("userToken", res.data.token);
+          setEmailData("");
+          setPwdData("");
+          setTimeout(() => {
+            setIsLoading(false);
+            navigate("/userProfile");
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        console.log("Post Error in logging user:\n", err);
+        Swal.fire({
+          icon: "error",
+          title: "Aah Shit! Something went wrong!",
+          text: `${err.response.data}`,
+          confirmButtonText: "OK",
+          position: "center",
+          confirmButtonColor: "red",
         });
+        setIsLoading(false);
+      });
   };
-  
+
   return (
     <main className={styles["signIn_loader_div"]}>
       {isLoading ? (
@@ -104,7 +104,20 @@ const SignIn = () => {
                 maxLength={16}
                 onChange={(e) => setPwdData(e.target.value)}
               />
-              <img src={Icon} alt="passwor_icon" onClick={togglePasswordVisibility} />
+              {showPassword ? (
+                <img
+                  src={pwd_close}
+                  alt="pwd_close"
+                  onClick={togglePasswordVisibility}
+
+                />
+              ) : (
+                <img
+                  src={pwd_open}
+                  alt="passwor_icon"
+                  onClick={togglePasswordVisibility}
+                />
+              )}
             </div>
           </div>
 
