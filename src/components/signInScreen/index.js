@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./signIn.module.css";
-import pwd_open from "../../images/password_icon.png";
-import pwd_close from "../../images/password_icon_close.png"
+import pwd_open from "../../images/lock_open.png";
+import pwd_close from "../../images/lock.png"
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";

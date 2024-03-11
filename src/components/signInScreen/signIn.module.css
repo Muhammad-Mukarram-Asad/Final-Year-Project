@@ -75,8 +75,8 @@
 }
 
 .password_image_div > img {
-  width: 28px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   margin-left: 80%;
   cursor: pointer;
