@@ -74,9 +74,7 @@
   /* border-radius: 10px; */
 }
 
-.password_image_div > img {
-  width: 30px;
-  height: 30px;
+.pwd_icon {
   position: absolute;
   margin-left: 80%;
   cursor: pointer;

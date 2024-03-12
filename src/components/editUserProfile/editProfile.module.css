@@ -68,6 +68,19 @@
   text-indent: 10px;
 }
 
+.error_msg{
+  font-size: 16px;
+  color: darkred;
+  background-color: burlywood;
+  width: 85%;
+  height: auto;
+  padding: 5px;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
 .gender_main_div {
   display: flex;
   flex-direction: column;

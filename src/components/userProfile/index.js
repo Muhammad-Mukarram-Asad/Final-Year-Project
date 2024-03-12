@@ -17,6 +17,7 @@ import { storage } from "../editUserPicture/config";
 import { ref, getDownloadURL } from "firebase/storage";
 import apiHit from "../../util/AxiosURL";
 import Swal from "sweetalert2";
+import { LogOut } from "react-feather";
 // import axios from "axios";
 
 const UserProfile = () => {
@@ -139,10 +140,12 @@ const UserProfile = () => {
     <main className={styles["profile_main_div"]}>
       <section className={styles["header_div"]}>
         <div className={styles["header_inner_div"]}>
-          <img src={signout} alt="signout" onClick={handleLogout} />
+          {/* <img src={signout} alt="signout" onClick={handleLogout} /> */}
+          <LogOut onClick={handleLogout} className={styles["logout_icon"]} color="white" size={30} />
+
           {/* <h1>{userData?.email}</h1> */}
           <h1>
-            Phone : <span>{userData?.wathsapp}</span>
+            For Contact: 0<span>{userData?.wathsapp}</span>
           </h1>
           <p>{""}</p>
         </div>

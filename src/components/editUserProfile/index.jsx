@@ -3,6 +3,7 @@ import styles from "./editProfile.module.css";
 import { useNavigate } from "react-router-dom";
 import back_icon from "../../images/back_icon_white.svg";
 import apiHit from "../../util/AxiosURL";
+import Swal from "sweetalert2";
 
 // import axios from "axios";
 
@@ -304,6 +305,10 @@ const EditProfile = () => {
   ];
   const navigate = useNavigate();
 
+  const [emailMsg, setEmailMsg] = useState("");
+  const [showEmailError, setShowEmailError] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -320,6 +325,34 @@ const EditProfile = () => {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+
+    if (name === "email") {
+      const isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
+        value
+      );
+      if (value.length > 0 && !isValidEmail) {
+        setEmailMsg("Please enter a valid email address");
+        setShowEmailError(true);
+      } else {
+        setEmailMsg("");
+        setShowEmailError(false);
+      }
+    }
+    if (name === "password") {
+      // Check if the entered password matches the regex
+      const isValidPassword =
+        /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*_)(?!.* ).{8,16}$/.test(value);
+
+      // If the password is not valid, you can handle it accordingly (e.g., show an error message)
+
+      if (value.length > 0 && !isValidPassword) {
+        setErrorMsg(`Password must contain at least one digit, one lowercase letter,\n 
+        one uppercase letter, one underscore, and be 8-16 characters long.`);
+        setShowError(true);
+      } else {
+        setShowError(false);
+      }
+    }
     setData({
       ...data,
       [name]: value,
@@ -357,9 +390,19 @@ const EditProfile = () => {
           status: "Available",
           gender: "",
         });
+
+        Swal.fire({
+          icon: "success",
+          title: "Profile Updated",
+          text: "Profile updated successfully",
+          confirmButtonText: "That's nice",
+          confirmButtonColor: "green",
+          position: "center",
+          timer: 1500,
+        });
         setTimeout(() => {
           navigate("/userProfile");
-        }, 3000);
+        }, 1500);
       })
       .catch((error) => {
         console.log("Axios Error = ", error);
@@ -394,6 +437,7 @@ const EditProfile = () => {
             onChange={handleChange}
           />
         </div>
+        {showEmailError && <p className={styles["error_msg"]}>{emailMsg}</p>}
 
         <div className={styles["label_input_div"]}>
           <label>Password</label>
@@ -406,6 +450,8 @@ const EditProfile = () => {
             onChange={handleChange}
           />
         </div>
+
+        {showError && <p className={styles["error_msg"]}>{errorMsg}</p>}
 
         <div className={styles["label_input_div"]}>
           <label>Contact Number</label>
@@ -456,7 +502,11 @@ const EditProfile = () => {
           <label>Country</label>
           <select id="country" name="country" required onChange={handleChange}>
             {countryOptions.map((country) => {
-              return <option value={country.value} key={country.label}>{country.label}</option>;
+              return (
+                <option value={country.value} key={country.label}>
+                  {country.label}
+                </option>
+              );
             })}
           </select>
         </div>

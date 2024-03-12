@@ -6,6 +6,7 @@ import delete_icon from "../../images/DELETE BUTTON.svg";
 import empty_post from "../../images/empty_post.svg";
 // import { API_BASE_URL } from "../../util/AxiosURL";
 import apiHit from "../../util/AxiosURL";
+import Swal from "sweetalert2";
 
 
 const ViewPost = () => {
@@ -59,6 +60,16 @@ const ViewPost = () => {
     try {
       // Make API call to delete the post
       await apiHit.delete(`/deletepost/${postId}`);
+      Swal.fire(
+        {
+          icon: "success",
+          title: "Post Deleted",
+          text: "Post deleted successfully",
+          confirmButtonText: "Hurray!",
+          confirmButtonColor: "green",
+          timer: 1500
+        }
+      )
 
       // Fetch the updated list of posts
       const response = await apiHit.get("/getallpost");

@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import styles from "./signIn.module.css";
 import pwd_open from "../../images/lock_open.png";
-import pwd_close from "../../images/lock.png"
+import pwd_close from "../../images/lock.png";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
-// import axios from "axios";
-// import { API_BASE_URL } from "../../util/AxiosURL";
 import apiHit from "../../util/AxiosURL";
 import Swal from "sweetalert2";
-// import Cookies from "js-cookie";
+import { Eye, EyeOff } from "react-feather";
 library.add(fab);
 
 const SignIn = () => {
@@ -105,18 +103,21 @@ const SignIn = () => {
                 onChange={(e) => setPwdData(e.target.value)}
               />
               {showPassword ? (
-                <img
-                  src={pwd_close}
-                  alt="pwd_close"
-                  onClick={togglePasswordVisibility}
-
-                />
+                <div className={styles["pwd_icon"]}>
+                  <EyeOff
+                    onClick={togglePasswordVisibility}
+                    size={30}
+                    color="white"
+                  />
+                </div>
               ) : (
-                <img
-                  src={pwd_open}
-                  alt="passwor_icon"
+                <div className={styles["pwd_icon"]}>
+                <Eye
                   onClick={togglePasswordVisibility}
+                  size={30}
+                  color="white"
                 />
+                </div>
               )}
             </div>
           </div>

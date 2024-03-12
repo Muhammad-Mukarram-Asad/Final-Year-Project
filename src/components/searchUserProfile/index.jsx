@@ -158,7 +158,7 @@ const SearchedUserProfile = () => {
       <section className={styles["header_div"]}>
         <div className={styles["header_inner_div"]}>
           {/* <img src={logout_icon} alt="signout" onClick={handleLogout} /> */}
-          <h1>Cell Number: {userData?.wathsapp}</h1>
+          <h1>Cell Number: 0{userData?.wathsapp}</h1>
           <p>{""}</p>
         </div>
         <div className={styles["image_div"]}>

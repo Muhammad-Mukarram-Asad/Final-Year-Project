@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faContactBook } from "@fortawesome/free-solid-svg-icons";
 import apiHit from "../../util/AxiosURL";
+import Swal from "sweetalert2";
 // import axios from "axios";
 // import cityOptions from "cities.json";
 
@@ -386,8 +387,24 @@ const SignUp = () => {
     apiHit
       .post("/register", userData)
       .then((response) => {
+        Swal.fire(
+          {
+            icon: "success",
+            title: "Account created successfully",
+            text: "Please login with your credentials now",
+            confirmButtonText: "That's cool",
+            confirmButtonColor: "green",
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+            cancelButtonColor:"grey",
+            position: "center",
+            timer: 2000
+          }
+        )
         console.log("Sent data = ", response.data);
-        navigate("/signInScreen");
+        setTimeout(() => {
+          navigate("/signInScreen");
+        }, [1000])
       })
       .catch((error) => {
         console.log("Axios Error = ", error);
