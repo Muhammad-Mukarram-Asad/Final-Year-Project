@@ -32,8 +32,6 @@ const ImageUploader = () => {
     const imageRef = ref(storage, `userimage/${userData._id}`);
     uploadBytes(imageRef, imageUpload)
       .then(() => {
-        // alert("Image upload successfully");
-
         Swal.fire({
           title: "Image Uploaded!",
           text: "Your image has been successfully uploaded.",

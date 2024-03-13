@@ -41,7 +41,7 @@ const CreatePost = () => {
 
     setTimeout(() => {
       navigate("/userProfile");
-    }, 3000);
+    }, 1000);
   };
   return (
     <main className={styles["createPost"]}>

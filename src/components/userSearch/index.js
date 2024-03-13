@@ -63,10 +63,9 @@ const PlayerSearch = () => {
 
   console.log("image url = ", imageUrl);
   const handleChange = (e) => {
-    let input = e.target.value;
-    setSearchQuery(input);
+    setSearchQuery(e);
     const filterData = allPlayers.filter((item) =>
-      item.name.toLowerCase().includes(input.toLowerCase())
+      item.name.toLowerCase().includes(e.toLowerCase())
     );
     console.log(filterData);
     setFilterList(filterData);
@@ -98,7 +97,7 @@ const PlayerSearch = () => {
           type="text"
           placeholder="Search player name"
           value={searchQuery}
-          onChange={(e) => handleChange(e)}
+          onChange={(e) => handleChange(e.target.value)}
         />
         <FontAwesomeIcon icon={faMagnifyingGlass} id={styles["search_icon"]} />
       </section>
@@ -115,7 +114,7 @@ const PlayerSearch = () => {
                   onClick={(event) => handleUserClick(item._id, event)}
                 >
                   {image && <img src={image.url} alt="user_image" />}
-                  <p>{item.name}</p>
+                  <h1>{item.name}</h1>
                 </div>
               );
             })
